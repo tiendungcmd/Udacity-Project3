@@ -1,5 +1,5 @@
 
-language: node_js
+language: minimal
 services:
   - docker
 ## Assuming the .travis.yml file is in the project directory, and there is a separate sub-directory for each service
