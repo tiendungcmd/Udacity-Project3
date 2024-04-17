@@ -19,9 +19,10 @@ build:
   - docker build -t udagram-frontend ./udagram-frontend
 ## Do similar for other three images
 tagging:
-  - docker tag udagram-api-feed sudkul/udagram-api-feed:v1
-  - docker tag udagram-api-user sudkul/udagram-api-user:v1
-  - docker tag udagram-frontend sudkul/udagram-frontend:v1
+  - docker tag udagram-api-feed tiendungcmd/udagram-api-feed:v1
+  - docker tag udagram-api-user tiendungcmd/udagram-api-user:v1
+  - docker tag udagram-frontend tiendungcmd/udagram-frontend:v1
+  - docker tagreverseproxy tiendungcmd/udagram-reverseproxy:v1
 ## Do similar for other three images```
 
 push:
