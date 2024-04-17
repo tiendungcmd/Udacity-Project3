@@ -3,9 +3,7 @@ language: minimal
 
 services:
   - docker
-env:
-  - DOCKER_COMPOSE_VERSION=v2.17.3
-
+script:
 ## Assuming the .travis.yml file is in the project directory, and there is a separate sub-directory for each service
 ## Use either `docker-compose` or individual `docker build` commands
   - docker build -t udagram-api-feed ./udagram-api-feed
@@ -19,6 +17,7 @@ env:
   - docker tag reverseproxy tiendungcmd/udagram-reverseproxy:v1
 ## Do similar for other three images```
 ## Assuming DOCKER_PASSWORD and DOCKER_USERNAME are set in the Travis repository settings
+after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push tiendungcmd/udagram-api-feed:v1
   - docker push tiendungcmd/udagram-api-user:v1
