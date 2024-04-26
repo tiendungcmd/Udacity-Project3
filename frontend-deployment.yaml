@@ -26,5 +26,17 @@ spec:
             memory: "1024Mi"
             cpu: "500m"       
         ports:
-        - containerPort: 8080
+        - containerPort: 8100
       restartPolicy: Always      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: udagram-frontend
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8100
+  selector:
+    app: udagram-frontend
